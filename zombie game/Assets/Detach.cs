@@ -13,8 +13,8 @@ public class Detach : MonoBehaviour
     public int headUsed;
     public int leftLegUsed;
     public int rightLegUsed;
+    public CircleCollider2D footCollider;
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetButtonDown("Fire1")) {
@@ -41,6 +41,9 @@ public class Detach : MonoBehaviour
             if (rightLegUsed < 1) {
                 ThrowRightLeg();
             }
+        }
+        if (rightLegUsed > 0 && leftLegUsed > 0) {
+            footCollider.enabled = false;
         }
     }
 

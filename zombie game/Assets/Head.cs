@@ -14,8 +14,8 @@ public class Head : MonoBehaviour
        // rigbod.velocity = transform.right * speed;
     //}
 
-    void OnTriggerEnter2D(Collider2D trigger) {
-        Debug.Log(trigger.name);
+    void OnCollisionEnter2D(Collision2D collider) {
+        Debug.Log(collider.gameObject.name);
 
     }
 }
