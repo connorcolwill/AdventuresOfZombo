@@ -8,11 +8,18 @@ public class Health : MonoBehaviour
     public int lives;
     public int numHearts;
     public Image[] hearts;
+    public Rigidbody2D rigidbod;
 
     void Update() {
-        if (lives < 1) {
-            print("player is dead");
-            Destroy(gameObject);
+        if (rigidbod.position.y < -5f) //player fell down
+        {
+            lives = 0;
+        }
+        if (lives < 1)
+        {
+            //player died
+            lives = numHearts;
+            GameManager.instance.RestartLevel();
         }
         if (lives > numHearts){
             lives = numHearts;
