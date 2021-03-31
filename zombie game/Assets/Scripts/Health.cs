@@ -9,6 +9,7 @@ public class Health : MonoBehaviour
     public int numHearts;
     public Image[] hearts;
     public Rigidbody2D rigidbod;
+    public Animator animator;
 
     void Update() {
         if (rigidbod.position.y < -5f) //player fell down
@@ -44,6 +45,7 @@ public class Health : MonoBehaviour
     }
 
     public void PlayerTakesDamage(int life) {
+        animator.SetTrigger("Damage");
         lives = lives - life;
     }
 }
