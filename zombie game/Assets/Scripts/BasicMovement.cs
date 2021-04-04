@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class BasicMovement : MonoBehaviour {
 	public Animator animator;
-    public Rigidbody2D rigidbod;
-    public float playerSpeed = 6f;
-    public float JumpForce = 16;
-	
-    void Update() {
+    public float JumpForce = 1f;
 
-		animator.SetFloat("Speed", Mathf.Abs(Input.GetAxis("Horizontal")));
+    private Rigidbody2D _rigidbody;    
+    
+    void Start()
+    {
+        _rigidbody = GetComponent<Rigidbody2D>();
+    }
 
+    void Update()
+    {
+    	animator.SetFloat("Speed", Mathf.Abs(Input.GetAxis("Horizontal")));
     	Vector3 horizontal = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
-        transform.position = transform.position + horizontal * playerSpeed * Time.deltaTime;
+        transform.position = transform.position + horizontal * 6 * Time.deltaTime;
 
         //flip player towards walking direction
         if ((Input.GetAxis("Horizontal")) < 0) {
@@ -23,9 +27,11 @@ public class BasicMovement : MonoBehaviour {
             this.transform.eulerAngles = new Vector2(0,0);
         }
 
-        if (Input.GetButtonDown("Jump")) {
-            rigidbod.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
-
-        }
+        if(Input.GetButtonDown("Jump") && Mathf.Abs(_rigidbody.velocity.y) < 0.001f)
+        {
+            _rigidbody.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
+        }   
     }
 }
+
+
