@@ -10,8 +10,15 @@ public class Health : MonoBehaviour
     public Image[] hearts;
     public Rigidbody2D rigidbod;
     public Animator animator;
+    int damageDelay = 1;
+    float timer;
 
+    void Start()
+    {
+        timer = damageDelay;
+    }
     void Update() {
+        timer -= Time.deltaTime;
         if (rigidbod.position.y < -5f) //player fell down
         {
             lives = 0;
@@ -39,8 +46,13 @@ public class Health : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D collider) {
-        if (collider.gameObject.CompareTag("Enemy")){
-            PlayerTakesDamage(1);
+        if (timer <= 0)
+        {
+            if (collider.gameObject.CompareTag("Enemy") || collider.gameObject.CompareTag("Trap"))
+            {
+                PlayerTakesDamage(1);
+                timer = damageDelay;
+            }
         }
     }
 
