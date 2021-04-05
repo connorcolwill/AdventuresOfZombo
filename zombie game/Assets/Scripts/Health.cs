@@ -21,13 +21,7 @@ public class Health : MonoBehaviour
         timer -= Time.deltaTime;
         if (rigidbod.position.y < -5f) //player fell down
         {
-            lives = 0;
-        }
-        if (lives < 1)
-        {
-            //player died
-            lives = numHearts;
-            GameManager.instance.RestartLevel();
+            Death();
         }
         if (lives > numHearts){
             lives = numHearts;
@@ -59,5 +53,16 @@ public class Health : MonoBehaviour
     public void PlayerTakesDamage(int life) {
         animator.SetTrigger("Damage");
         lives = lives - life;
+        if (lives < 1)
+        {
+            rigidbod.isKinematic = true;
+            animator.SetTrigger("Dead");
+        }
+    }
+
+    private void Death()
+    {
+        GameManager.instance.RestartLevel();
+        lives = numHearts;
     }
 }
