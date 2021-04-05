@@ -10,7 +10,7 @@ public class Health : MonoBehaviour
     public Image[] hearts;
     public Rigidbody2D rigidbod;
     public Animator animator;
-    int damageDelay = 1;
+    int damageDelay = 2;
     float timer;
 
     void Start()
@@ -59,10 +59,10 @@ public class Health : MonoBehaviour
             animator.SetTrigger("Dead");
         }
     }
-
     private void Death()
     {
         GameManager.instance.RestartLevel();
         lives = numHearts;
+
     }
 }
