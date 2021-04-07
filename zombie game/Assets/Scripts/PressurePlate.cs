@@ -11,17 +11,35 @@ public class PressurePlate : MonoBehaviour
 
     void Update ()
     {
-        GameObject[] legs = GameObject.FindGameObjectsWithTag("Leg");
-        foreach(GameObject leg in legs)
+        if (playerFootCollider.IsTouching(plateCollider) || playerBodyCollider.IsTouching(plateCollider))
         {
-            if (leg.GetComponent<Collider2D>().IsTouching(plateCollider) || playerFootCollider.IsTouching(plateCollider) || playerBodyCollider.IsTouching(plateCollider))
+            Platform1.transform.localScale = new Vector3(9, 1, 1);
+        }
+        else
+        {
+            Platform1.transform.localScale = new Vector3(0, 0, 1);
+        }
+
+        //if leg object exists in the scene these statements are called
+        GameObject[] legs = GameObject.FindGameObjectsWithTag("Leg");
+        foreach (GameObject leg in legs)
+        {
+            if (leg.GetComponent<Collider2D>().IsTouching(plateCollider))
             {
                 Platform1.transform.localScale = new Vector3(9, 1, 1);
             }
             else
             {
-                Platform1.transform.localScale = new Vector3(0, 0, 1);
+                if (playerFootCollider.IsTouching(plateCollider) || playerBodyCollider.IsTouching(plateCollider))
+                {
+                    Platform1.transform.localScale = new Vector3(9, 1, 1);
+                }
+                else
+                {
+                    Platform1.transform.localScale = new Vector3(0, 0, 1);
+                }
             }
         }
+        
     }
 }
