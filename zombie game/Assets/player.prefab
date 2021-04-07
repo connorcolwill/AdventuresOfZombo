@@ -980,8 +980,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 8266539776976799335}
-  rigidbod: {fileID: 4695451780123961474}
-  playerSpeed: 5
   JumpForce: 14
 --- !u!114 &4695451780123961477
 MonoBehaviour:
@@ -1001,6 +999,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  rigidbod: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!1 &3927445903838386267
 GameObject:
   m_ObjectHideFlags: 0

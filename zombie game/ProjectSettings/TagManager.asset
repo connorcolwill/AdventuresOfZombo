@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - Hurtbox
   - Trap
+  - Leg
+  - PressurePlate
   layers:
   - Default
   - TransparentFX
