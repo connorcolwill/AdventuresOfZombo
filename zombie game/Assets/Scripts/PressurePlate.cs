@@ -6,14 +6,20 @@ public class PressurePlate : MonoBehaviour
 {
     public GameObject Platform1;
     public Collider2D plateCollider;
-    public Collider2D playerFootCollider;
-    public CircleCollider2D playerBodyCollider;
+    //public Collider2D playerBodyCollider;
+    public CircleCollider2D playerFootCollider;
 
     void Update ()
     {
-        if (playerFootCollider.IsTouching(plateCollider) || playerBodyCollider.IsTouching(plateCollider))
+        if (playerFootCollider.IsTouching(plateCollider))
         {
-            Platform1.transform.localScale = new Vector3(9, 1, 1);
+            if (Platform1.CompareTag("BluePlatform")) {
+                Platform1.transform.localScale = new Vector3(1, 1, 1);
+            }
+            else
+            {
+                Platform1.transform.localScale = new Vector3(9, 1, 1);
+            }
         }
         else
         {
@@ -24,22 +30,21 @@ public class PressurePlate : MonoBehaviour
         GameObject[] legs = GameObject.FindGameObjectsWithTag("Leg");
         foreach (GameObject leg in legs)
         {
-            if (leg.GetComponent<Collider2D>().IsTouching(plateCollider))
+            if (leg.GetComponent<Collider2D>().IsTouching(plateCollider) || playerFootCollider.IsTouching(plateCollider))
             {
-                Platform1.transform.localScale = new Vector3(9, 1, 1);
-            }
-            else
-            {
-                if (playerFootCollider.IsTouching(plateCollider) || playerBodyCollider.IsTouching(plateCollider))
-                {
-                    Platform1.transform.localScale = new Vector3(9, 1, 1);
+                if (Platform1.CompareTag("BluePlatform")) {
+                    Platform1.transform.localScale = new Vector3(1, 1, 1);
                 }
                 else
                 {
-                    Platform1.transform.localScale = new Vector3(0, 0, 1);
+                    Platform1.transform.localScale = new Vector3(9, 1, 1);
                 }
             }
+            else
+            {
+                Platform1.transform.localScale = new Vector3(0, 0, 1);
+            }
         }
-        
     }
+        
 }
