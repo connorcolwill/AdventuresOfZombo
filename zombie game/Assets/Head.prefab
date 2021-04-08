@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8159778428610573131}
   - component: {fileID: 707478299834222246}
   - component: {fileID: 8112632502226344245}
-  - component: {fileID: -6075616381649853222}
   - component: {fileID: 3046032289980343745}
   m_Layer: 0
   m_Name: Head
@@ -122,20 +121,6 @@ CircleCollider2D:
   m_Offset: {x: 0.27209723, y: -0.1607877}
   serializedVersion: 2
   m_Radius: 3.174274
---- !u!114 &-6075616381649853222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5939892076411947928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a92e6ce6726524106afe5a0dc11270d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 20
-  rigbod: {fileID: 707478299834222246}
 --- !u!82 &3046032289980343745
 AudioSource:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ public class Health : MonoBehaviour
     public Image[] hearts;
     public Rigidbody2D rigidbod;
     public Animator animator;
-    int damageDelay = 2;
+    float damageDelay = 0.5f;
     float timer;
 
     void Start()
