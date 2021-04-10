@@ -19,7 +19,7 @@ public class Stomper : MonoBehaviour
 		if(other.gameObject.tag == "Hurtbox")
 		{
 			other.gameObject.GetComponent<EnemyHP>().TakeDamage(damageToDeal);
-			theRB2D.AddForce(transform.up * bounceForce, ForceMode2D.Impulse);
+			theRB2D.velocity = new Vector2(theRB2D.velocity.x, bounceForce);
 		}
 	}
 }

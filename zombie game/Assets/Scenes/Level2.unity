@@ -504,7 +504,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: -0.00015258789}
+  m_AnchoredPosition: {x: -0.000061035156, y: -0.00012207031}
   m_SizeDelta: {x: 0, y: -0.00012207031}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &199745380
@@ -1327,7 +1327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageToDeal: 1
-  bounceForce: 15
+  bounceForce: 5
 --- !u!61 &534646009
 BoxCollider2D:
   m_ObjectHideFlags: 0
